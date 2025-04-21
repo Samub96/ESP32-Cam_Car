@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Icesi Interactiva - ESP32-CAM</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="src/Icesi-logo.png" alt="Logo Universidad" class="logo"/>
+    </div>
+    <div class="header-center">
+      <h1>Remote Controlled Car Camera Robot Web Server</h1>
+    </div>
+    <div class="header-right">
+      <span>Ingeniería en Energía Inteligente</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="camera-view">
+      <img id="cameraStream" src="" alt="Camera Stream" />
+    </div>
+
+    <div class="remote-control">
+      <div class="row">
+        <button onclick="sendCommand('forward')">↑</button>
+      </div>
+      <div class="row">
+        <button onclick="sendCommand('left')">←</button>
+        <button onclick="sendCommand('stop')" class="stop">■</button>
+        <button onclick="sendCommand('right')">→</button>
+      </div>
+      <div class="row">
+        <button onclick="sendCommand('backward')">↓</button>
+      </div>
+      <div class="row">
+        <button onclick="toggleFlash()">🔦</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js?v=1.0"></script>
+</body>
+</html>
