@@ -1,3 +1,6 @@
+<img src=https://www.icesi.edu.co/buscar-personas/assets/img/ban-icesi.png width="250" height="100" align="center">
+
+-------------------
 
 # 🤖 Carro Controlado por ESP32-CAM - Universidad Icesi
 
