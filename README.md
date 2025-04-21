@@ -76,7 +76,7 @@ La solución permite:
 - **Desarrollador:** Samuel — Estudiante de Ingeniería Telemática
 - **Asesor Académico:** Carlos Andres Diaz
 - **Universidad:** Universidad Icesi
-- **Facultad:** Ingeniería en Energía Inteligente
+- **Carrera:** Ingeniería en Energía Inteligente
 
 ---
 
