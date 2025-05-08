@@ -1,6 +1,6 @@
 #ifndef MOTOR_CONTROL_H
 #define MOTOR_CONTROL_H
-
+//pin de los motores
 #define IN1 14
 #define IN2 15
 #define IN3 12

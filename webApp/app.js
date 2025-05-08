@@ -1,5 +1,5 @@
 // 🔧 CAMBIA SOLO ESTA VARIABLE
-const ESP32_IP = "http://10.192.152.243";
+const ESP32_IP = "http://10.246.212.243";
 
 // Control de movimiento
 async function sendCommand(action) {
@@ -31,5 +31,5 @@ async function toggleFlash() {
 
 // Stream de la cámara (se inserta en el HTML)
 window.onload = () => {
-  document.getElementById("cameraStream").src = `${ESP32_IP}/stream`;
+  document.getElementById("cameraStream").src = `${ESP32_IP}:81/stream`;
 };
