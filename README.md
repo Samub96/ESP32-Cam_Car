@@ -1,3 +1,6 @@
+<img src=https://www.icesi.edu.co/buscar-personas/assets/img/ban-icesi.png width="250" height="100" align="center">
+
+-------------------
 
 # 🤖 Carro Controlado por ESP32-CAM - Universidad Icesi
 
@@ -76,7 +79,7 @@ La solución permite:
 - **Desarrollador:** Samuel — Estudiante de Ingeniería Telemática
 - **Asesor Académico:** Carlos Andres Diaz
 - **Universidad:** Universidad Icesi
-- **Facultad:** Ingeniería en Energía Inteligente
+- **Carrera:** Ingeniería en Energía Inteligente
 
 ---
 
