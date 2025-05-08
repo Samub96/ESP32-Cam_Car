@@ -1,51 +1,53 @@
 #ifndef MOTOR_CONTROL_H
 #define MOTOR_CONTROL_H
-//pin de los motores
+
+// Pines para control de motores (puente H tipo L298N)
 #define IN1 14
 #define IN2 15
-#define IN3 12
-#define IN4 13
+#define IN3 13
+#define IN4 12
 
+void stopMotors();
+// Inicialización de pines
 void setupMotors() {
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
   pinMode(IN3, OUTPUT);
   pinMode(IN4, OUTPUT);
+  stopMotors();
 }
 
+// Función auxiliar para reducir redundancia
+void setMotor(bool in1, bool in2, bool in3, bool in4) {
+  digitalWrite(IN1, in1);
+  digitalWrite(IN2, in2);
+  digitalWrite(IN3, in3);
+  digitalWrite(IN4, in4);
+}
+
+// Detener todos los motores
 void stopMotors() {
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, LOW);
-  digitalWrite(IN3, LOW);
-  digitalWrite(IN4, LOW);
+  setMotor(LOW, LOW, LOW, LOW);
 }
 
+// Avanzar
 void moveForward() {
-  digitalWrite(IN1, HIGH);
-  digitalWrite(IN2, LOW);
-  digitalWrite(IN3, HIGH);
-  digitalWrite(IN4, LOW);
+  setMotor(HIGH, LOW, HIGH, LOW);
 }
 
+// Retroceder
 void moveBackward() {
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, HIGH);
-  digitalWrite(IN3, LOW);
-  digitalWrite(IN4, HIGH);
+  setMotor(LOW, HIGH, LOW, HIGH);
 }
 
+// Girar a la izquierda
 void turnLeft() {
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, HIGH);
-  digitalWrite(IN3, HIGH);
-  digitalWrite(IN4, LOW);
+  setMotor(LOW, HIGH, HIGH, LOW);
 }
 
+// Girar a la derecha
 void turnRight() {
-  digitalWrite(IN1, HIGH);
-  digitalWrite(IN2, LOW);
-  digitalWrite(IN3, LOW);
-  digitalWrite(IN4, HIGH);
+  setMotor(HIGH, LOW, LOW, HIGH);
 }
 
 #endif

@@ -1,7 +1,6 @@
-// 🔧 CAMBIA SOLO ESTA VARIABLE
-const ESP32_IP = "http://10.246.212.243";
+const ESP32_IP = "http://172.20.250.243";
 
-// Control de movimiento
+// Enviar comandos de movimiento
 async function sendCommand(action) {
   try {
     const res = await fetch(`${ESP32_IP}/move?action=${action}`);
@@ -15,7 +14,7 @@ async function sendCommand(action) {
   }
 }
 
-// Control de flash
+// Encendido/apagado del flash
 let flash = false;
 async function toggleFlash() {
   flash = !flash;
@@ -29,7 +28,25 @@ async function toggleFlash() {
   }
 }
 
-// Stream de la cámara (se inserta en el HTML)
+// Soporte para mantener presionado
+function setupHoldButton(buttonId, command) {
+  const btn = document.getElementById(buttonId);
+
+  btn.addEventListener("mousedown", () => sendCommand(command));
+  btn.addEventListener("touchstart", () => sendCommand(command));
+
+  const stop = () => sendCommand("stop");
+  btn.addEventListener("mouseup", stop);
+  btn.addEventListener("mouseleave", stop);
+  btn.addEventListener("touchend", stop);
+}
+
+// Inicialización general
 window.onload = () => {
   document.getElementById("cameraStream").src = `${ESP32_IP}:81/stream`;
+
+  setupHoldButton("btn-forward", "forward");
+  setupHoldButton("btn-backward", "backward");
+  setupHoldButton("btn-left", "left");
+  setupHoldButton("btn-right", "right");
 };
