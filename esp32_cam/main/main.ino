@@ -13,8 +13,8 @@ void setup() {
   setupFlash();
 
    //  OLED
-  //initDisplay();
-  //showMessage("Iniciando...", "");
+  initDisplay();
+  showMessage("Iniciando...", "");
   //Camara
   if (!setupCamera()) {
     Serial.println("Error al inicializar la cámara");
@@ -24,9 +24,9 @@ void setup() {
   startWebServer();
 
   // 5. Muestra la IP en OLED
-  //String ip = WiFi.localIP().toString();
-  //howIP(ip);
-  //Serial.printf("IP: %s\n", ip.c_str());
+  String ip = WiFi.localIP().toString();
+  showIP(ip);
+ Serial.printf("IP: %s\n", ip.c_str());
 }
 
 void loop() {

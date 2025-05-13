@@ -10,8 +10,8 @@
 #define OLED_RESET    -1       // SH1106 no necesita reset físico
 #define SCREEN_ADDRESS 0x3C    // Dirección I2C usual
 
-#define OLED_SDA 16
-#define OLED_SCL 2
+#define OLED_SDA 3
+#define OLED_SCL 1
 #define WHITE 1
 
 Adafruit_SH1106G display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
@@ -27,6 +27,7 @@ void initDisplay() {
   }
 
   displayReady = true;
+  display.setRotation(2); // Rota 180 grados
   display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(WHITE);
@@ -56,7 +57,7 @@ void showIP(const String& ip) {
   display.setTextSize(1);
   display.setCursor(0, 0);
   display.println(F("IP asignada:"));
-  display.setTextSize(2);
+  display.setTextSize(1);
   display.setCursor(0, 16);
   display.println(ip);
   display.display();
