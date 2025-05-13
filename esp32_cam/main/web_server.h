@@ -6,6 +6,8 @@
 #include "esp_camera.h"
 #include "motor_control.h"
 #include "flash_control.h"
+#include "web_page.h"
+
 
 // Credenciales Wi‑Fi
 const char* ssid = "samu";
@@ -80,6 +82,13 @@ void startWebServer() {
     return;
   }
 
+  // Ruta para la interfaz web
+  server.on("/", HTTP_GET, []() {
+    String html = MAIN_page;
+    html.replace("%IP%", WiFi.localIP().toString());
+    server.send(200, "text/html", html);
+  });
+
   // Servidor de comandos
   server.on("/move", HTTP_GET, handleControl);
   server.on("/flash", HTTP_GET, handleFlash);
@@ -93,10 +102,5 @@ void startWebServer() {
   streamServer.begin();
 }
 
-// === Loop para atender ambos servidores ===
-void handleWebServer() {
-  server.handleClient();
-  streamServer.handleClient();
-}
 
 #endif // WEB_SERVER_H

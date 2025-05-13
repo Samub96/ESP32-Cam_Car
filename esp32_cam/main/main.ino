@@ -4,6 +4,8 @@
 #include "flash_control.h"
 #include "oled_display.h"
 
+
+
 void setup() {
   Serial.begin(115200);
   //motores y flash
@@ -28,5 +30,6 @@ void setup() {
 }
 
 void loop() {
-  handleWebServer();
+  server.handleClient();        // Necesario para atender comandos
+  streamServer.handleClient();
 }
